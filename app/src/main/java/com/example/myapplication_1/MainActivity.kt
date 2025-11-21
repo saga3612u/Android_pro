@@ -1,6 +1,8 @@
 package com.example.myapplication_1
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -15,6 +17,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        //TODO ask for permission of camera upon first launch of application
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_DENIED ||
+                checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_DENIED) {
+                val permission = arrayOf<String>(
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                requestPermissions(permission, 112)
+            }
+        }
 
         val act2 = findViewById<TextView>(R.id.Forgetbt)
         val login = findViewById< Button>(R.id.button2)

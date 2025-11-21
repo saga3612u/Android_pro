@@ -11,7 +11,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="400dp"
-        app:cardElevation="70dp"
+        app:cardElevation="100dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,9 +70,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:background="@color/white"
                     android:hint="email address"
-                    android:textColorHint="#ffff"
-                    android:textColor="#ffff"
+                    android:textColorHint="#000000"
+                    android:textStyle="italic"
+                    android:textColor="#000000"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
